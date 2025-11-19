@@ -1,0 +1,1346 @@
+/* ------------------------------------- */
+/* --- 0. CSS GLOBAL RESET --- */
+/* ------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que padding y border se incluyan dentro del ancho y alto del elemento */
+}
+
+/* El elemento body es el contenedor principal, debemos asegurarnos de que no tenga margen */
+body {
+    margin: 0; 
+    padding: 0;
+    background-color: #000; /* Fondo global negro por si alguna sección no cubre el 100% */
+}
+
+/* PALETA DE COLORES */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+}
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+section {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    color: #D4AF37;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    display: block;
+    text-align: center;
+}
+
+/* --- BOTONES (GENERAL) --- */
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    border: 2px solid #C28B38;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 2px;
+    display: inline-block;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.btn-primary {
+    background-color: #C28B38;
+    color: #121212;
+}
+.btn-primary:hover {
+    background-color: #D4AF37;
+    border-color: #D4AF37;
+    color: #000;
+}
+.btn-secondary {
+    background-color: transparent;
+    color: #C28B38;
+}
+.btn-secondary:hover {
+    background-color: #C28B38;
+    color: #ffffff;
+}
+
+/* --- 1. BARRA DE NAVEGACIÓN (AJUSTES FINALES) --- */
+.main-header {
+    background-color: #121212;
+    border-bottom: 1px solid #333;
+    padding: 15px 5%; 
+    display: flex;
+    justify-content: space-between; /* CRÍTICO: Esto separa el logo del nav */
+    align-items: center; /* CRÍTICO: Centra verticalmente logo y nav */
+    
+    position: fixed; /* Asegurémonos de que sea fixed para el padding-top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #121212; 
+}
+.main-header .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em; 
+    font-weight: 800; 
+    letter-spacing: 4px; 
+    color: #ffffff;
+}
+
+.main-header nav {
+    flex-grow: 1; /* CRÍTICO: Permite que el NAV ocupe todo el espacio disponible */
+    display: flex; /* CRÍTICO: Convierte el NAV en un contenedor flex para su UL */
+    justify-content: flex-end; /* CRÍTICO: Empuja el UL a la derecha dentro del NAV */
+    /* Elimina margin-top: 0; y align-self: flex-end; de aquí si existen */
+    /* margin-top: 0; */ 
+    /* align-self: flex-end; */ 
+}
+
+.main-header nav ul {
+    display: flex; 
+    gap: 20px; 
+    white-space: nowrap; 
+    /* Elimina cualquier margin-left: auto; o similares si los tienes aquí */
+}
+.main-header nav a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 280; 
+    text-transform: uppercase; 
+    font-size: 1em;
+}
+.main-header nav a:hover {
+    color: #C28B38;
+}
+
+.slide-content {
+    position: absolute; /* Esto es correcto para centrar el texto sobre la imagen */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* CRÍTICO: Centra el elemento exactamente en el medio */
+    text-align: center;
+    max-width: 80%;
+}
+
+.slide-content h1 {
+    margin-bottom: 20px; /* Espacio entre el título y el botón */
+}
+/* --- 2. SECCIÓN HERO (SLIDER) --- */
+.hero-section {
+    position: relative;
+    height: 70vh;
+    padding: 0;
+    display: block; 
+    overflow: hidden;
+    padding-top: 80px; /* **Calculo:** El header mide cerca de 70px. Usamos 80px para seguridad. */
+    padding-bottom: 0;
+    min-height: 600px; 
+}
+.slides-container {
+    display: flex; 
+    width: 300%; 
+    height: 100%;
+    transition: transform 1s ease-in-out; 
+}
+.slide {
+    min-width: 33.33%; 
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.8; 
+}
+
+.hero-content {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra los títulos y el botón juntos */
+    z-index: 20; 
+    /* ... otros estilos ... */
+    
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; /* CRÍTICO: Centra el texto Y EL BOTÓN en la columna */
+    height: auto; 
+    min-height: auto; 
+    width: 90%; 
+}
+.hero-content h2 {
+    font-size: 1.2em;
+    color: #D4AF37;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.hero-content h1 {
+    font-size: 3em;
+    margin-top: 0;
+    margin-bottom: 10px; 
+    letter-spacing: 3px;
+}
+.action-point {
+    position: static; /* Hacemos que fluya normalmente después del H1 */
+    margin-top: 20px; /* Agregamos espacio entre el H1 y el botón */
+    bottom: auto; 
+    left: auto; 
+    transform: none; 
+}
+.action-point .btn-primary {
+    font-size: 1em; 
+    padding: 10px 20px; 
+    background-color: #D4AF37; 
+    color: #121212;
+}
+.prev-slide, .next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 25; 
+    transition: background-color 0.3s;
+}
+.prev-slide:hover, .next-slide:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.prev-slide { left: 10px; } 
+.next-slide { right: 10px; } 
+
+/* ------------------------------------- */
+/* --- 11. SECCIÓN DE OBRAS DESTACADAS --- */
+/* ------------------------------------- */
+.featured-section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.featured-section h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.featured-section .subtitle {
+    margin-bottom: 50px;
+    color: #ccc;
+}
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+/* --- Ajuste a las Tarjetas Destacadas --- */
+.featured-card {
+    background-color: #0c0c0c; /* Color de fondo muy oscuro para que camufle el espacio */
+    border-radius: 4px;
+    /* Quita cualquier sombra o borde que pueda crear un marco */
+    box-shadow: none; 
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadimos la transición */
+}
+
+
+/* --- Ajuste a la Imagen dentro de la Tarjeta --- */
+.featured-card img {
+    width: 100%;
+    height: 280px; 
+    object-fit: contain; 
+    display: block;
+    /* ¡CAMBIO CRÍTICO! Usar el color del contenedor */
+    background-color: #0c0c0c; 
+    padding: 10px; /* Añade un pequeño padding para dar aire a la obra si toca el borde */
+}
+.featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); /* Sombra dorada más suave que en la galería principal */
+}
+
+/* Para las obras destacadas en index.html */
+.featured-card img {
+width: 100%;
+    height: 280px; 
+    object-fit: contain; 
+    display: block;
+    background-color: #0c0c0c; /* ¡Asegúrate de que este color coincida con el background-color de .featured-card! */
+    padding: 10px; 
+}
+
+.card-info {
+    padding: 15px;
+    text-align: left;
+}
+.card-info h3 {
+    color: #D4AF37;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+.card-info p {
+    color: #ccc;
+    font-size: 0.9em;
+}
+.featured-btn {
+    display: inline-block; /* Esto lo hace inline-block, pero text-align en el padre no funciona si está en un grid o flex */
+    margin-top: 20px;
+}
+
+/* ------------------------------------- */
+/* --- 17. SECCIÓN MINI BIOGRAFÍA (Home) --- */
+/* ------------------------------------- */
+.artist-bio-section {
+    display: flex; /* Para poner el texto y la imagen en columnas */
+    align-items: center;
+    gap: 50px;
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #121212; /* Un color de fondo para destacarla */
+}
+.bio-content {
+    width: 50%;
+    text-align: left;
+}
+.bio-content h2 {
+    font-size: 2.5em;
+    color: #D4AF37; /* Título en dorado */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+.bio-content p {
+    color: #ccc;
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.bio-image-container {
+    width: 50%;
+}
+.artist-photo {
+    width: 100%;
+    height: 400px; /* Altura fija para mantener el diseño */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+    border: 3px solid #D4AF37; /* Marco dorado elegante */
+}
+/* Reversa el orden en pantallas más pequeñas (opcional, pero buena práctica de responsive) */
+@media (max-width: 768px) {
+    .artist-bio-section {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .bio-content, .bio-image-container {
+        width: 100%;
+    }
+}
+
+/* ------------------------------------- */
+/* --- 12. SECCIÓN LLAMADA A LA ACCIÓN (CTA) --- */
+/* ------------------------------------- */
+.cta-section {
+    background-color: #121212; /* Fondo sutilmente diferente */
+    padding: 100px 5%;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cta-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    color: #D4AF37;
+    margin-bottom: 15px;
+}
+.cta-content p {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+.cta-buttons a {
+    margin: 0 15px;
+}
+
+/* ------------------------------------- */
+/* --- 13. SECCIÓN DEL MAPA DE UBICACIÓN --- */
+/* ------------------------------------- */
+.map-section {
+    padding: 60px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #0d0d0d; /* Fondo ligeramente más oscuro para destacarlo */
+}
+.map-section h2 {
+    font-size: 2.2em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.map-section .subtitle {
+    margin-bottom: 30px;
+    color: #ccc;
+}
+.map-container {
+    overflow: hidden; /* Importante para limpiar bordes del iframe */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 3px solid #D4AF37; /* Borde dorado alrededor del mapa */
+}
+.map-container iframe {
+    display: block;
+}
+
+/* ------------------------------------- */
+/* --- 14. SECCIÓN PREGUNTAS FRECUENTES (FAQ) --- */
+/* ------------------------------------- */
+.faq-section {
+    padding: 80px 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.faq-section h2 {
+    font-size: 2.8em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.faq-section .subtitle {
+    margin-bottom: 40px;
+    color: #ccc;
+}
+.faq-container {
+    text-align: left;
+}
+.faq-item {
+    border: 1px solid #333;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    overflow: hidden; /* Oculta la respuesta inicialmente */
+    background-color: #1a1a1a;
+    transition: background-color 0.3s;
+}
+.faq-item:hover {
+    background-color: #222;
+}
+.faq-question {
+    padding: 18px 25px;
+    color: #D4AF37;
+    font-size: 1.4em;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    /* Añadir un ícono de flecha/plus aquí */
+}
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0; /* Clave: Ocultar respuesta */
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s;
+}
+.faq-answer p {
+    color: #ccc;
+    padding-bottom: 18px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ESTILO ACTIVO (Para mostrar la respuesta, se implementa con JS) */
+/* .faq-item.active .faq-answer {
+    max-height: 200px; 
+    opacity: 1;
+    padding-top: 10px;
+} */
+
+/* --- 3. SECCIÓN GALERÍA DE PINTURAS (Destacada) --- */
+.art-gallery {
+    background-color: #0d0d0d; 
+    padding: 100px 5%; 
+}
+/* Estilos para el contenedor de la cuadrícula */
+.gallery-container {
+    display: grid;
+    /* Define 3 columnas de igual ancho con espacio (gap) entre ellas */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espacio entre las tarjetas */
+    margin-top: 40px;
+}
+
+/* --- 3. SECCIÓN GALERÍA DE PINTURAS (Cuadrícula Principal) --- */
+.art-gallery-grid {
+    padding: 60px 5%;
+    max-width: 1200px; /* Ancho máximo de la cuadrícula */
+    margin: 0 auto;
+    text-align: center; /* Centra los títulos h2 y p.subtitle */
+}
+.art-gallery-grid h2 {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+.art-gallery-grid .subtitle {
+    color: #ccc;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+/* Estilos para el contenedor de la cuadrícula */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+    gap: 30px; /* Espacio entre las tarjetas */
+    margin-top: 40px;
+}
+
+/* Estilos para las tarjetas individuales de la galería */
+.art-card {
+    background-color: #0c0c0c;
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px; /* Espacio debajo del texto */
+    display: block; /* Asegura que el enlace ocupe todo el espacio */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para hover */
+}
+
+.art-card img {
+    width: 100%;
+    height: 350px; /* Altura fija */
+    object-fit: contain; /* Para que la imagen se vea completa sin recortar */
+    display: block;
+    background-color: #0c0c0c; /* Color de fondo para los espacios vacíos en la imagen */
+    padding: 10px; /* Pequeño padding interno para dar aire a la obra */
+}
+
+/* EFECTO DE RESPLANDOR AL PASAR EL CURSOR (HOVER) */
+.art-card:hover {
+    transform: translateY(-5px); /* Efecto de levantamiento sutil */
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.7); /* Sombra dorada brillante */
+}
+
+.art-card .card-info {
+    padding: 15px;
+    text-align: left;
+}
+.art-card .card-info h3 {
+    color: #D4AF37;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    text-align: left; /* Alinea el título de la obra a la izquierda */
+}
+.art-card .card-info p {
+    color: #ccc;
+    font-size: 0.9em;
+    text-align: left; /* Alinea la descripción a la izquierda */
+}
+
+/* Media Queries para Responsive (ya los teníamos, solo aseguramos que estén bien) */
+@media (max-width: 900px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+@media (max-width: 600px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+    }
+    .gallery-hero h1 {
+        font-size: 2.5em; /* Ajustar tamaño de título en móvil */
+    }
+}
+
+/* --- HERO DE GALERÍA (galeria.html) --- */
+.gallery-hero {
+    background-color: #111;
+    /* Reducimos el padding general del contenedor */
+    padding: 100px 5% 40px; 
+    text-align: center;
+}
+
+.gallery-hero .hero-content {
+    /* Mantenemos estas propiedades: no posicionamiento absoluto */
+    position: static; 
+    transform: none;
+    margin: 0 auto; 
+}
+
+.gallery-hero h2 {
+    /* PINTURAS AL ÓLEO Y ACRÍLICOS */
+    font-size: 1.2em;
+    margin-bottom: 5px; /* Pequeña separación del título principal */
+}
+
+.gallery-hero h1 {
+    /* GALERÍA DE OBRAS DE ARTE */
+    font-size: 4em;
+    margin-top: 0; 
+    margin-bottom: 20px; /* Aseguramos una separación clara de lo que venga DESPUÉS */
+    line-height: 1.1; /* Aseguramos que la altura de línea sea ajustada para evitar grandes espacios internos */
+}
+/* ------------------------------------------------------------- */
+
+
+/* --- SECCIÓN DE LA CUADRÍCULA (art-gallery-grid) --- */
+.art-gallery-grid {
+    /* El espacio entre el Hero y el título EXPLORA debe ser controlado aquí */
+    padding: 60px 5%; /* Aumentamos el padding-top de nuevo para dar espacio seguro */
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; 
+}
+
+.art-gallery-grid h2 {
+    /* EXPLORA LAS OBRAS DISPONIBLES */
+    font-size: 2.5em;
+    margin-top: 0; /* Aseguramos que el H2 no añada margen adicional arriba */
+    margin-bottom: 10px; 
+}
+/* ------------------------------------------------------------- */
+
+.featured-art {
+    width: 45%; 
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7); 
+    transition: transform 0.3s ease-in-out;
+}
+.featured-art:hover {
+    transform: scale(1.02); 
+}
+.featured-art img {
+    width: 100%;
+    display: block;
+    border: 8px solid #333; 
+}
+.gallery-description {
+    width: 55%; 
+    padding-top: 20px; 
+}
+.gallery-description h2 {
+    font-size: 2.8em; 
+    color: #D4AF37;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 15px;
+}
+.gallery-description p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    color: #ccc; 
+    line-height: 1.7; 
+}
+.available-art {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 40px;
+    gap: 60px; 
+    border-radius: 4px;
+    border: 1px solid #333; 
+    transition: box-shadow 0.3s;
+}
+.available-art:hover {
+    box-shadow: 0 0 20px rgba(194, 139, 56, 0.3);
+}
+.art-preview {
+    width: 60%;
+    align-self: flex-start;
+}
+.art-preview h3 {
+    font-size: 2em; 
+    margin-top: 0;
+    color: #C28B38; 
+}
+.art-preview .instagram {
+    color: #888;
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+.art-preview .price {
+    font-size: 1.8em; 
+    font-weight: bold;
+    color: #D4AF37;
+    margin: 25px 0; 
+}
+.art-image-small {
+    width: 40%;
+    border: 5px solid #222; 
+}
+.art-image-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- 4. SECCIÓN ESTILOS DE PINTURAS --- */
+.styles-section {
+    background-color: #121212;
+    text-align: center;
+}
+.styles-section h2 {
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.style-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border: 1px solid #333;
+    border-left: 5px solid #C28B38; 
+    text-align: left;
+    transition: transform 0.3s;
+}
+.style-card:hover {
+    transform: translateY(-5px);
+    border-color: #D4AF37;
+}
+.style-card h3 {
+    color: #D4AF37;
+    margin-top: 0;
+}
+
+/* ----------------------------------------------- */
+/* --- 5. SECCIÓN SOBRE MÍ Y CONTACTO (OBSOLETO EN MULTIPAGINA) --- */
+/* ----------------------------------------------- */
+/* ESTOS ESTILOS PUEDEN ELIMINARSE SI YA NO SE USA about-contact-section */
+.about-contact-section {
+    display: flex;
+    gap: 80px;
+    padding: 100px 5%;
+    background-color: #0d0d0d;
+}
+.about-info, .contact-form-area {
+    width: 50%;
+}
+
+/* --- 7. SECCIÓN BIOGRAFÍA (NOSOTROS) - DISEÑO 2 COLUMNAS --- */
+.about-section {
+    background-color: #1a1a1a; 
+    padding: 100px 5%;
+    text-align: center;
+}
+.about-header {
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+.about-header h2 {
+    font-size: 3em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 5px;
+}
+/* Contenedor principal de la biografía (la clave de las 2 columnas) */
+.bio-container {
+    display: flex;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+    
+    /* ESTILOS AGREGADOS/CORREGIDOS PARA MOSTRAR EL CONTENIDO */
+    background-color: #0d0d0d; /* Fondo sólido para el contenido */
+    padding: 40px; /* Espacio alrededor del texto y la imagen */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    /* FIN ESTILOS AGREGADOS/CORREGIDOS */
+}
+.artist-image {
+    width: 35%;
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+.artist-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+.artist-bio {
+    width: 65%;
+    text-align: left;
+    padding-top: 20px;
+}
+.artist-bio h3 {
+    font-size: 2em;
+    color: #ffffff;
+    border-bottom: 2px solid #C28B38;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+.artist-bio p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+.artist-bio a.btn-primary {
+    margin-top: 30px;
+    display: inline-block; 
+}
+/* ------------------------------------- */
+/* Estilos para Misión y Visión (NUEVO) */
+.mission-vision-container {
+    display: flex; /* Activa la división en dos columnas */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto 0 auto; /* Espacio para separarlo de la biografía */
+    text-align: left;
+    padding: 30px 0;
+}
+.mv-card {
+    width: 50%;
+    background-color: #0d0d0d;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: box-shadow 0.3s;
+}
+.mv-card:hover {
+    box-shadow: 0 0 15px rgba(194, 139, 56, 0.4); /* Sombra dorada al pasar el ratón */
+}
+.mv-card h3 {
+    color: #D4AF37;
+    font-size: 1.8em;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.mv-card p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #ccc;
+}
+/* Estilos para la sección de Valores (NUEVO) */
+.values-header {
+    text-align: center;
+    margin: 80px auto 40px auto;
+}
+.values-header h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+.values-grid {
+    display: grid;
+    /* Divide el espacio en 3 columnas iguales */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+.value-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 6px;
+    border-left: 5px solid #C28B38; /* Una línea dorada para el acento */
+    transition: transform 0.3s;
+}
+.value-card:hover {
+    transform: translateY(-5px); /* Pequeño efecto de levantamiento */
+}
+.value-card h3 {
+    color: #D4AF37;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.value-card p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* ------------------------------------- */
+/* --- 9. SECCIÓN SERVICIOS (2 COLUMNAS: INFO Y FORMULARIO) --- */
+/* ------------------------------------- */
+.services-section {
+    display: flex; /* Activa la estructura de 2 columnas */
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 5%;
+    align-items: flex-start;
+}
+.services-info {
+    width: 60%; /* Columna de la izquierda para la información */
+}
+.services-info h2 {
+    font-size: 3em;
+    color: #D4AF37;
+    margin-bottom: 5px;
+}
+.services-info .subtitle {
+    text-align: left;
+    margin-bottom: 60px;
+}
+.service-card {
+    background-color: #0d0d0d;
+    padding: 35px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    border-left: 5px solid #C28B38;
+}
+.service-card h3 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.service-card ul {
+    margin: 20px 0;
+    list-style: disc;
+    padding-left: 20px;
+}
+.service-card ul li {
+    color: #ccc;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+/* Columna Derecha: Formulario de Cotización */
+.quote-area {
+    width: 40%; /* Columna de la derecha para el formulario */
+    position: sticky; /* Fija el formulario mientras el usuario hace scroll */
+    top: 30px; 
+}
+.quote-form-container {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+.quote-form-container h3 {
+    text-align: center;
+    color: #D4AF37;
+    font-size: 2em;
+    margin-top: 0;
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
+}
+.quote-form-container p {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+/* Estilos para los campos del formulario de cotización */
+.quote-form-container form input,
+.quote-form-container form select,
+.quote-form-container form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    background-color: #121212;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+.quote-form-container form select option {
+    background-color: #121212;
+    color: #ffffff;
+}
+.quote-form-container form input:focus,
+.quote-form-container form select:focus,
+.quote-form-container form textarea:focus {
+    border-color: #C28B38;
+    outline: none;
+}
+.quote-form-container .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* ------------------------------------- */
+/* --- 10. SECCIÓN GALERÍA (art-grid) --- */
+/* ------------------------------------- */
+.gallery-page {
+    padding: 100px 5% 60px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.gallery-header {
+    margin-bottom: 70px;
+}
+.gallery-header h2 {
+    font-size: 3em;
+    color: #D4AF37;
+    margin-bottom: 5px;
+}
+.gallery-header .btn-primary {
+    margin-top: 30px;
+}
+
+/* La clave: Cuadrícula de 3 columnas */
+.art-grid {
+    display: grid;
+    /* 3 columnas de igual ancho y espacios de 30px */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+}
+/* --- Ajuste a las Tarjetas de la Galería --- */
+.art-card {
+    background-color: #0c0c0c; /* Mismo color de fondo */
+    box-shadow: none;
+    border-radius: 4px;
+}
+
+/* --- Ajuste a la Imagen de la Galería --- */
+.art-card img {
+    width: 100%;
+    height: 350px; 
+    object-fit: contain; 
+    display: block;
+    /* ¡CAMBIO CRÍTICO! Usar el color del contenedor */
+    background-color: #0c0c0c; 
+    padding: 10px; 
+}
+.art-card:hover {
+    transform: translateY(-5px); /* Efecto 3D al pasar el ratón */
+    box-shadow: 0 8px 25px rgba(194, 139, 56, 0.7); /* Sombra dorada intensa */
+}
+/* Para la galería completa en galeria.html */
+.art-card img {
+    /* ... otras propiedades ... */
+    object-fit: contain;
+    /* Cambia el color del fondo libre: */
+    background-color: #1a1a1a; /* <-- Usa el color de fondo de tu tarjeta o sección */
+}
+.art-details {
+    padding: 20px;
+}
+.art-details h3 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+.art-details .technique {
+    font-style: italic;
+    color: #ccc;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+.art-details .price {
+    font-weight: bold;
+    color: #D4AF37; /* Precio en color dorado */
+    font-size: 1.2em;
+}
+
+/* ------------------------------------- */
+/* --- 15. SECCIÓN SUSCRIPCIÓN (NEWSLETTER) --- */
+/* ------------------------------------- */
+.newsletter-section {
+    padding: 80px 5%;
+    background-color: #0d0d0d; /* Fondo ligeramente más oscuro */
+    text-align: center;
+    border-top: 1px solid #333;
+}
+.newsletter-section h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.newsletter-section .subtitle {
+    margin-bottom: 40px;
+    color: #ccc;
+}
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+.newsletter-form .input-group {
+    margin-bottom: 20px;
+}
+.newsletter-form input[type="text"],
+.newsletter-form input[type="email"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+.checkbox-group {
+    margin-bottom: 25px;
+    font-size: 0.9em;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+}
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    /* Estilos adicionales para el checkbox si fuera necesario */
+}
+.newsletter-form .btn-secondary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+/* ------------------------------------- */
+/* --- 16. SECCIÓN ESTILOS ARTÍSTICOS --- */
+/* ------------------------------------- */
+.art-styles-section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.art-styles-section h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.art-styles-section .subtitle {
+    margin-bottom: 60px;
+    color: #ccc;
+}
+.styles-grid {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 70px; 
+}
+.style-item {
+    display: flex; 
+    align-items: center;
+    gap: 50px;
+    padding: 40px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.styles-grid .style-item:nth-child(even) {
+    flex-direction: row-reverse; 
+}
+.style-info {
+    width: 50%;
+    text-align: left;
+}
+.style-info h3 {
+    color: #D4AF37;
+    font-size: 2em;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.style-info p {
+    color: #ccc;
+    line-height: 1.6;
+}
+.style-info ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+.style-info ul li {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.95em;
+    margin-bottom: 5px;
+}
+
+/* Estilos para el Carrusel/Slider de Estilos */
+.style-slider {
+    width: 50%;
+    height: 350px; 
+    overflow: hidden;
+    position: relative; /* ¡CLAVE para posicionar las flechas! */
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 3px solid #C28B38;
+}
+.style-slides {
+    display: flex;
+    width: 300%; 
+    height: 100%;
+    transition: transform 0.6s ease-in-out; 
+}
+.style-slider img {
+    width: calc(100% / 3); 
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ------------------------------------- */
+/* --- 16.1. ESTILOS DE NAVEGACIÓN MANUAL (Botones) --- */
+/* ------------------------------------- */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5em;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+.slider-btn:hover {
+    background: #D4AF37; 
+    color: #000;
+}
+.prev-btn {
+    left: 10px;
+}
+.next-btn {
+    right: 10px;
+}
+
+/* ------------------------------------- */
+/* --- 5. FOOTER (Pie de Página) --- */
+/* ------------------------------------- */
+footer {
+    background-color: #0c0c0c;
+    color: #999;
+    padding: 40px 5%;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    flex-wrap: wrap; /* Permite que los elementos se muevan en pantallas pequeñas */
+}
+footer .logo {
+    font-size: 1.8em;
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: #D4AF37;
+}
+
+/* Estilos de las Redes Sociales (NUEVO) */
+.social-links a {
+    color: #999;
+    font-size: 1.8em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: #D4AF37;
+}
+.copyright {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+/* ------------------------------------- */
+/* --- 18. MODAL DE ZOOM (LIGHTBOX) --- */
+/* ------------------------------------- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Se mantiene en la pantalla */
+    z-index: 1000; /* Asegura que esté por encima de todo lo demás */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite scroll si la imagen es muy grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo semitransparente oscuro */
+    padding-top: 60px; /* Espacio para el botón de cerrar */
+}
+
+/* Contenido del Modal (la imagen) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%; /* Ancho máximo para la imagen */
+    max-height: 85%; /* Altura máxima para la imagen */
+    object-fit: contain; /* Asegura que la imagen completa se vea sin recorte */
+    background-color: #1a1a1a; /* Fondo para las barras si la proporción no encaja */
+    border: 2px solid #D4AF37; /* Marco dorado */
+    border-radius: 5px;
+}
+
+/* Título y descripción de la imagen */
+.modal-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: #ccc;
+    font-size: 1.1em;
+    padding: 10px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+}
+
+/* Botón de cerrar */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* Para que esté por encima del fondo */
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: #D4AF37;
+    text-decoration: none;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KELMATICA - Servicios de Arte</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">KELMATICA</div>
+        <nav>
+            <ul> 
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="servicios" class="services-section">
+        
+        <div class="services-info">
+            <h2>NUESTROS SERVICIOS <br> DE ARTE</h2>
+            <p class="subtitle">Descubre cómo KELMATICA puede llevar una pieza única a tu vida, desde obras listas para colgar hasta encargos que capturan tu historia personal.</p>
+
+            <div class="service-card ready-to-buy">
+                <div class="icon-header">
+                    <h3>Galería de Obras en Venta</h3>
+                </div>
+                <p>Explora nuestra galería curada de lienzos originales creados en óleo y acrílico. Cada pieza está lista para ser enviada y colgada, garantizando una alta calidad artística y la inmediatez de la compra.</p>
+                <ul>
+                    <li>Formatos: Diversos tamaños disponibles (cuadrados, rectangulares).</li>
+                    <li>Temas: Retratos, paisajes abstractos, figura humana.</li>
+                    <li>Ventaja: Envío rápido e inmediato.</li>
+                </ul>
+                <a href="galeria.html" class="btn-secondary">VER GALERÍA DISPONIBLE</a>
+            </div>
+
+            <div class="service-card custom-order">
+                <div class="icon-header">
+                    <h3>Creación de Pinturas por Encargo</h3>
+                </div>
+                <p>Convierta un recuerdo, una fotografía o una idea en una obra de arte duradera. Trabajaremos mano a mano para que la pieza refleje su estilo y emoción personal. Ideal para regalos únicos o piezas centrales de decoración.</p>
+                <ul>
+                    <li>Proceso: Consulta de idea, bocetos iniciales, aprobación y ejecución final.</li>
+                    <li>Materiales: Óleo de alta calidad o acrílico profesional.</li>
+                    <li>Especialidad: Retratos con iluminación dramática (Caravaggista).</li>
+                </ul>
+                <a href="#quote-form" class="btn-primary">SOLICITAR COTIZACIÓN AQUÍ</a>
+            </div>
+            
+        </div>
+
+        <div class="quote-area" id="quote-form">
+            <div class="quote-form-container">
+                <h3>SOLICITUD RÁPIDA <br> DE ENCARGO</h3>
+                <p>Rellena este formulario para iniciar el proceso de tu pintura personalizada.</p>
+                <form>
+                    <input type="text" placeholder="Tu Nombre" required>
+                    <input type="email" placeholder="Correo Electrónico" required>
+                    <select required>
+                        <option value="" disabled selected>Tipo de Encargo (Retrato, Paisaje, etc.)</option>
+                        <option value="Retrato">Retrato al Óleo</option>
+                        <option value="Abstracto">Abstracción Lírica</option>
+                        <option value="Paisaje">Paisaje o Naturaleza</option>
+                        <option value="Otro">Otro (Especificar en mensaje)</option>
+                    </select>
+                    <input type="text" placeholder="Tamaño Deseado (Ej: 80x100 cm)">
+                    <textarea placeholder="Detalla tu idea: colores, referencia, estilo..." rows="4" required></textarea>
+                    <button type="submit" class="btn-primary">SOLICITAR COTIZACIÓN</button>
+                </form>
+            </div>
+        </div>
+        
+    </section>
+        </div>
+<section id="estilos-arte" class="art-styles-section">
+    <h2>APRENDE Y DESCUBRE MÁS <br> SOBRE ESTILOS ARTÍSTICOS</h2>
+    <p class="subtitle">Explora los estilos artísticos que KELMATICA domina. Inspírate para tu próxima pieza personalizada.</p>
+
+    <div class="styles-grid">
+
+        <div class="style-item">
+            <div class="style-info">
+                <h3>Retrato Clásico / Dramático</h3>
+                <p>Enfocado en la luz y la sombra (Claroscuro), este estilo aporta dramatismo y profundidad emocional. Es ideal para retratos al óleo atemporales y con gran carácter.</p>
+                <ul>
+                    <li>Técnica: Óleo</li>
+                    <li>Carácter: Atemporal, elegante, intenso.</li>
+                </ul>
+            </div>
+            <div class="style-slider" data-slider-id="1">
+                <div class="style-slides">
+                    <img src="img/relato clasico 1.png" alt="Retrato Clásico 1">
+                    <img src="img/relato clasico 2.png" alt="Retrato Clásico 2">
+                    <img src="img/relato clasico 3.png" alt="Retrato Clásico 3">
+                </div>
+                <button class="slider-btn prev-btn">❮</button>
+                <button class="slider-btn next-btn">❯</button>
+            </div>
+        </div>
+
+        <div class="style-item">
+            <div class="style-slider" data-slider-id="2">
+                <div class="style-slides">
+                    <img src="img/Abstracción Lírica 1.png" alt="Abstracción Lírica 1">
+                    <img src="img/Abstracción Lírica 2.png" alt="Abstracción Lírica 2">
+                    <img src="img/Abstracción Lírica 3.png" alt="Abstracción Lírica 3">
+                </div>
+                <button class="slider-btn prev-btn">❮</button>
+                <button class="slider-btn next-btn">❯</button>
+            </div>
+            <div class="style-info">
+                <h3>Abstracción Lírica</h3>
+                <p>Se enfoca en la expresión espontánea y la emoción, utilizando el color y las formas orgánicas. Perfecto para crear ambientes modernos y energéticos.</p>
+                <ul>
+                    <li>Técnica: Acrílico, Mixta</li>
+                    <li>Carácter: Moderno, vibrante, emotivo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="style-item">
+            <div class="style-info">
+                <h3>Vanguardista / Geométrico</h3>
+                <p>Exploración de formas, líneas y planos. Ideal para piezas que buscan un impacto visual audaz y estructurado, con influencias del Cubismo y el Arte Deco.</p>
+                <ul>
+                    <li>Técnica: Acrílico, Digital</li>
+                    <li>Carácter: Audaz, estructurado, conceptual.</li>
+                </ul>
+            </div>
+            <div class="style-slider" data-slider-id="3">
+                <div class="style-slides">
+                    <img src="img/Arte Vanguardista 1.png" alt="Arte Vanguardista 1">
+                    <img src="img/Arte Vanguardista 2.png" alt="Arte Vanguardista 2">
+                    <img src="img/Arte Vanguardista 3.png" alt="Arte Vanguardista 3">
+                </div>
+                <button class="slider-btn prev-btn">❮</button>
+                <button class="slider-btn next-btn">❯</button>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<footer>
+        <div class="footer-content">
+            <div class="logo">KELMATICA</div>
+            
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="galeria.html">Pinturas</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/#TULINKINSTAGRAM#" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a href="https://www.facebook.com/#TULINKFACEBOOK#" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+                <a href="https://wa.me/573001234567" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 KELMATICA Art. Todos los derechos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
