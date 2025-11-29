@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide);
     }
     
-    // --------------------------------------------------------
 
     // ---------------------------------------------
     // FUNCIONALIDAD DEL ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
